@@ -13,8 +13,6 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe: Recipe;
 
-  recipes: Recipe[];
-
   constructor(private route: ActivatedRoute,
               private location: Location,
               private recipeService: RecipeService) {

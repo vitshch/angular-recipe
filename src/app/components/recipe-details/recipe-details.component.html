@@ -1,5 +1,9 @@
 <div style="text-decoration: underline; cursor: pointer" (click)="goBack()"><p>Go Back</p></div>
-<div class="card">
+<p *ngIf="!recipe">
+  Loading recipe. Please wait a moment...
+</p>
+
+<div *ngIf="recipe" class="card">
   <div class="card-header">
     <h3 class="card-title">{{ recipe.title }}</h3>
   </div>

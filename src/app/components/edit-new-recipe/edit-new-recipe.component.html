@@ -38,8 +38,8 @@
     </div>
 
     <div class="form-group">
-      <label for="ingredient">Instructions</label>
-      <div class="ingredient row" *ngFor="let instruction of recipeInProgress.instructions; let i = index">
+      <label for="instruction">Instructions</label>
+      <div class="instruction row" *ngFor="let instruction of recipeInProgress.instructions; let i = index">
         <div class="col">
           <input type="text" class="form-control" [(ngModel)]="recipeInProgress.instructions[i].instruction" placeholder="instruction"/>
         </div>
@@ -48,10 +48,10 @@
         </div>
       </div>
       <div>
-        <button id="ingredient" type="button" class="btn btn-secondary" (click)="addInstruction()">Add Instruction</button>
+        <button id="instruction" type="button" class="btn btn-secondary" (click)="addInstruction()">Add Instruction</button>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="addRecipe()">Add Recipe</button>
+    <button type="submit" class="btn btn-primary" (click)="addRecipeButtonClicked()">Add Recipe</button>
   </div>
 </div>

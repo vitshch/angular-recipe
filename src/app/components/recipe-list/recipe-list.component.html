@@ -6,6 +6,14 @@
   <!--<div style="margin:5px">-->
     <!--<input type="button" class="btn btn-primary" value="Change font size" (click)="toggleFontSize()"/>-->
   <!--</div>-->
+  <p *ngIf="!recipeLoaded" style="color: green">
+    Loading of the recipes. Please wait for a moment...
+  </p>
+
+  <p *ngIf="recipeLoaded && (!recipes)" style="color: darkred ;">
+    There are no recipes for now
+  </p>
+
   <div><input (click)="addNewRecipe()" type="button" class="btn btn-primary" style="margin: 10px" value="Add New Recipe"/></div>
   <app-recipe-summary *ngFor="let recipe of recipes" [recipe]="recipe" (userCLick)="userClickedOnRecipe($event)"></app-recipe-summary>
 </div>
