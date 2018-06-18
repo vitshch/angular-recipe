@@ -1,0 +1,23 @@
+<div class="card recipe" (click)="userClick()">
+  <div class="card-header">
+    <h3 class="card-title">{{ recipe.title }}</h3>
+  </div>
+  <div class="card-body">
+    <div style="float: left; width: 300px;">
+      <p>{{ recipe.description }}</p>
+    </div>
+    <div class="cover-photo-holder" *ngIf="recipe.coverPhoto">
+      <img src="{{ recipe.coverPhoto }}" style="width:150px; height: 150px;"/>
+    </div>
+    <div>
+      <div style="float: left; width: 100%">
+        <span style="font-weight: bold">Preparation Time: </span>
+        <span>{{ recipe.preparationTime }}</span>
+      </div>
+      <div style="float: left; width: 100%">
+        <span style="font-weight: bold">People Count: </span>
+        <span>{{ recipe.personNumber }}</span>
+      </div>
+    </div>
+  </div>
+</div>

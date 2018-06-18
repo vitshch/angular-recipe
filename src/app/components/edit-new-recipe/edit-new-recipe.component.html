@@ -1,0 +1,57 @@
+<div class="card" style="margin: 10px">
+  <div class="card-header">
+    <h4 class="card-title">Add New Recipe</h4>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" [(ngModel)]="recipeInProgress.title" class="form-control" type="text" placeholder="Title"/>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="recipeInProgress.description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="time">Preparation Time</label>
+      <input id="time" type="text" [(ngModel)]="recipeInProgress.preparationTime" class="form-control" placeholder="Time"/>
+    </div>
+    <div class="form-group">
+      <label for="personCount">Person Count</label>
+      <input id="personCount" type="text" [(ngModel)]="recipeInProgress.personNumber" class="form-control" placeholder="Person Count"/>
+    </div>
+    <div class="form-group">
+      <label for="ingredient">Ingredients</label>
+      <div class="ingredient row" *ngFor="let ingredients of recipeInProgress.ingredients; let i = index">
+        <div class="col">
+          <input type="text" class="form-control" [(ngModel)]="recipeInProgress.ingredients[i].ingredient" placeholder="ingredient"/>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" [(ngModel)]="recipeInProgress.ingredients[i].measure" placeholder="measure"/>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-secondary" (click)="removeIngredientOnIndex(i)">Remove</button>
+        </div>
+      </div>
+      <div>
+        <button id="ingredient" type="button" class="btn btn-secondary" (click)="addIngredient()">Add Ingredient</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ingredient">Instructions</label>
+      <div class="ingredient row" *ngFor="let instruction of recipeInProgress.instructions; let i = index">
+        <div class="col">
+          <input type="text" class="form-control" [(ngModel)]="recipeInProgress.instructions[i].instruction" placeholder="instruction"/>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-secondary" (click)="removeInstructionOnIndex(i)">Remove</button>
+        </div>
+      </div>
+      <div>
+        <button id="ingredient" type="button" class="btn btn-secondary" (click)="addInstruction()">Add Instruction</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="addRecipe()">Add Recipe</button>
+  </div>
+</div>

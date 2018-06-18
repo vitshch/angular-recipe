@@ -1,0 +1,24 @@
+div.cover-photo-holder {
+  float: left;
+  width: 150px;
+}
+
+div.cover-photo-holder img {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+.recipe {
+  float: left;
+  margin: 10px 0;
+  width: 500px;
+  min-height: 300px;
+}
+
+@media (min-width: 880px) {
+  .recipe {
+    width: 500px;
+    margin: 10px 10px;
+  }
+}
