@@ -6,10 +6,11 @@
 <div *ngIf="recipe" class="card">
   <div class="card-header">
     <h3 class="card-title">{{ recipe.title }}</h3>
+    <span>{{recipe.dateAdded | date: 'short'}}</span>
   </div>
   <div class="card-body">
     <div style="float: left; width: 300px">
-      <p>{{ recipe.description }}</p>
+      <p>{{ recipe.description | swearingFilter }}</p>
     </div>
     <div class="cover-photo-holder" *ngIf="recipe.coverPhoto">
       <img src="{{ recipe.coverPhoto }}"/>

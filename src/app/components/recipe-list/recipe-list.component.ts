@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../../model/Recipe';
 import {Router} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-recipe-list',
@@ -29,13 +28,10 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeService
-      .getRecipes().subscribe((response) => this.recipes = response.data);
-    // old way
-    // this.recipeService.getAllRecipes()
-    //   .then((recipes) => {
-    //     this.recipeLoaded = true;
-    //     this.recipes = recipes;
-    //   });
+      .getRecipes().subscribe((response) => {
+      this.recipes = response.data;
+      this.recipeLoaded = true;
+    });
   }
 
   public userClickedOnRecipe(recipe_id: number): void {

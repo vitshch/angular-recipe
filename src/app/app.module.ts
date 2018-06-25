@@ -11,6 +11,9 @@ import {RecipeSummaryComponent} from './components/recipe-summary/recipe-summary
 import {RecipeDetailsComponent} from './components/recipe-details/recipe-details.component';
 import {EditNewRecipeComponent} from './components/edit-new-recipe/edit-new-recipe.component';
 import {RecipeService} from './services/recipe.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import {SwearingPipe} from './misc/swearing.pipe';
+import {HighlightRecipeDirective} from './misc/highlightrecipe.directive';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import {RecipeService} from './services/recipe.service';
     RecipeListComponent,
     RecipeSummaryComponent,
     RecipeDetailsComponent,
-    EditNewRecipeComponent
+    EditNewRecipeComponent,
+    SwearingPipe,
+    HighlightRecipeDirective
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: 'editnewrecipe',

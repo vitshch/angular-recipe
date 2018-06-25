@@ -4,6 +4,11 @@ import {Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
+interface Response {
+  data: Recipe[];
+  message: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,30 +22,19 @@ export class RecipeService {
               private httpClient: HttpClient) {
   }
 
-  getRecipes(): Observable<Array<Recipe>> {
+  getRecipes(): Observable<any> {
     return this.httpClient
-      .get<Array<Recipe>>(this.BASE_URL + '/v1/recipes.json');
+      .get(`${this.BASE_URL}/v1/recipes.json`);
   }
 
-  getAllRecipes(): Promise<Recipe[]> {
-    return this.http
-      .get(this.BASE_URL + '/v1/recipes.json')
-      .toPromise()
-      .then(response => response.json().data as Recipe[]);
+  getRecipeById(recipeId: number): Observable<any> {
+    return this.httpClient
+      .get( `${this.BASE_URL}/v1/recipes/${recipeId}.json`);
   }
 
-  getRecipeById(recipeId: number): Promise<Recipe> {
-    return this.http
-      .get(this.BASE_URL + `/v1/recipes/${recipeId}.json`)
-      .toPromise()
-      .then(response => response.json().data as Recipe);
-  }
-
-  addNewRecipe(recipe: Recipe): Promise<Recipe> {
+  addNewRecipe(recipe: Recipe): Observable<any> {
     console.log(recipe);
-    return this.http
-      .put(this.BASE_URL + '/v1/recipes.json', recipe)
-      .toPromise()
-      .then(response => response.json().data as Recipe);
+    return this.httpClient
+      .put( `${this.BASE_URL}/v1/recipes.json`, recipe);
   }
 }
